@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .h1 {
+            background: greenyellow;
+            color: skyblue;
+            height: 2rem;
+            width: 100%;
+            font-size: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>test</h1>
+
+
+    <script>
+
+        function autosize() {
+            /*17-3-12:字体自适应start*/
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        if (clientWidth >= 640) {
+                            docEl.style.fontSize = '100px';/*移动端字体最好剩以16以rem做单位*/
+                        } else {
+
+                            docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                            if (parseInt(docEl.style.fontSize) < 12) {
+                                docEl.style.fontSize = '12px';/*最小12pxrem就不能转换了*/
+                            }
+                        }
+                    };
+
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+                recalc();
+            })(document, window);
+        }
+        window.onload = function () {
+            autosize();
+        }
+    </script>
+</body>
+
+</html>
