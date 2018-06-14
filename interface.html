@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+    <!-- 引入 jQuery 库 -->
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div data-role="page" id="pageone">
+        <form id="userform">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="name" data-clear-btn="true">
+            <label for="code">Code:</label>
+            <input type="range" name="code" id="code" value="25" min="0" max="100" data-highlight="true">
+            <a href="#" id="submit" data-rel="popup" data-position-to="window" data-role="button">起飞</a>
+
+            <!-- 模态框 -->
+            <!-- <a href="#login" id="submit" data-rel="popup" data-position-to="window" data-role="button">起飞</a>
+                        <div data-role="popup" id="login" data-theme="a">
+                            <h3></h3>
+                            <label id="return_name"></label>
+                            <label id="return_code"></label>
+                        </div> -->
+        </form>
+        <a id="login" class="ui-hidden-accessible" href="#pagetwo" data-transition="slide">切换</a>
+    </div>
+    <div data-role="page" id="pagetwo">
+        <h3></h3>
+        <label id="return_name"></label>
+        <label id="return_code"></label>
+        <a id="back" href="#pageone" data-transition="slide">返回起点</a>
+    </div>
+
+
+    <script src="./dist/jquery.validate.min.js"></script>
+    <script>
+        //显示加载器
+        function showLoader() {
+            //显示加载器.for jQuery Mobile 1.2.0
+            $.mobile.loading('show', {
+                text: '加载中...', //加载器中显示的文字
+                textVisible: true, //是否显示文字
+                theme: 'a', //加载器主题样式a-e
+                textonly: false, //是否只显示文字
+                html: "" //要显示的html内容，如图片等
+            });
+        }
+        //隐藏加载器.for jQuery Mobile 1.2.0
+        function hideLoader() {
+            //隐藏加载器
+            $.mobile.loading('hide');
+        }
+
+        $(function () {
+
+            $('#submit').click(function () {
+                showLoader();
+                $('#userform').validate({
+                    rules: {
+                        name: {
+                            required: true,
+                            minlength: 2,
+                            maxlength: 10
+                        },
+
+                    },
+                    messages: {
+                        name: {
+                            required: '飞行员不得为空',
+                            minlength: '飞行员至少两个字符',
+                            maxlength: '飞行员最多10个字符'
+                        }
+                    }
+                })
+                var param = $("#userform").serialize();
+                $.ajax({
+                    type: 'post',
+                    url: 'test.class.php',
+                    data: param,
+                    dataType: 'json',
+                    success: function (data) {
+                        sleep(5);
+                        hideLoader();
+                        $('#login').click();
+                        if (data['status'] == 1) {
+                            $('#pagetwo h3').html('起飞');
+                            $('#back').addClass("ui-hidden-accessible");
+                        } else {
+                            $('#pagetwo h3').html('坠机');
+                            $('#back').removeClass("ui-hidden-accessible");
+                        }
+                        $('#return_name').html(data['name']);
+                        $('#return_code').html(data['code']);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

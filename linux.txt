@@ -1,0 +1,35 @@
+proftpd
+-->service pureftpd stop
+
+
+linux防火墙
+-->service iptables stop
+
+查看端口
+netstat -ntl
+
+
+添加用户
+useradd ftpadmin -s /sbin/nologin –d /www(其他目录)
+
+find / -name '*vsftpd*'
+
+vsftp：
+ 
+修改vsftpd.conf配置文件让它支持Passive（被动）模式
+ 
+#vim /etc/vsftpd/vsftpd.conf
+ 
+在最后一行添加如下内容：
+ 
+pasv_min_port=10050 （设置被动模式的端口范围）
+ 
+pasv_max_port=10060（设置被动模式的端口范围）
+在防火墙配置文件iptables中添加端口
+ 
+#vim /etc/sysconfig/iptables
+ 
+-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10050:100060 -j ACCEPT
+
+使用 zip 打包文件夹：zip -r -q -o pack.zip mark/
+ 
