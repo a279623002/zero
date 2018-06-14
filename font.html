@@ -15,16 +15,18 @@
     <!-- 引入 jQuery Mobile 库 -->
     <script src="./dist/jquery.mobile-1.4.5.min.js"></script>
     <style>
-        button {
+        main button {
             background-image: linear-gradient(rgb(89, 201, 253), rgb(230, 255, 86));
             background-size: auto 200%;
             background-position: 0 100%;
             transition: background-position 0.5s;
         }
 
-        button:hover {
+        main button:hover {
             background-position: 0 0;
         }
+
+
     </style>
 </head>
 
@@ -36,7 +38,7 @@
             <h1>test</h1>
         </div>
 
-        <div data-role="content">
+        <main data-role="content">
             <div class="ui-grid-b">
                 <div class="ui-block-a">
                     <button class="ui-btn ui-btn-b">test1</button>
@@ -78,13 +80,43 @@
                     <button class="ui-btn ui-btn-b">test3</button>
                 </div>
             </div>
+            <img style="width:100%;" src="./images/haziki.jpg" alt="">
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-btn-b">test1</button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-btn-b">test2</button>
+                </div>
+                <div class="ui-block-c">
+                    <button class="ui-btn ui-btn-b">test3</button>
+                </div>
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-btn-b">test1</button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-btn-b">test2</button>
+                </div>
+                <div class="ui-block-c">
+                    <button class="ui-btn ui-btn-b">test3</button>
+                </div>
+            </div>
 
-        </div>
+        </main>
 
-        <div data-role="footer" data-position="fixed" data-theme="b">
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Facebook上关注我</a>
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Twitter上关注我</a>
-            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Instagram上关注我</a>
+
+        <div data-role="footer" data-position="fixed" data-theme="b" style="text-align:center;">
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-btn-b" style="width:100%;margin-left: 0;">test1</button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-btn-b" style="width:100%;margin-left: 0;">test2</button>
+                </div>
+                <div class="ui-block-c">
+                    <button class="ui-btn ui-btn-b" style="width:100%;margin-left: 0;">test3</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -99,10 +131,9 @@
                         var clientWidth = docEl.clientWidth;
                         if (!clientWidth) return;
                         if (clientWidth >= 640) {
-                            docEl.style.fontSize = '16px';/*移动端字体最好剩以16以rem做单位*/
+                            docEl.style.fontSize = '32px';/*移动端字体最好剩以16以rem做单位*/
                         } else {
-
-                            docEl.style.fontSize = 16 * (clientWidth / 640) + 'px';
+                            docEl.style.fontSize = 32 * (clientWidth / 640) + 'px';
                             if (parseInt(docEl.style.fontSize) < 12) {
                                 docEl.style.fontSize = '12px';/*最小12pxrem就不能转换了*/
                             }
@@ -116,6 +147,7 @@
             })(document, window);
         }
         window.onload = function () {
+
             autosize();
         }
     </script>
