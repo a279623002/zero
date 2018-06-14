@@ -15,19 +15,25 @@
             font-size: 0.5rem;
         }
 
-        .verticalcenter {
-            position: relative;
-            top: 50%;
-            -webkit-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
-            transform: translateY(-50%);
+        button {
+            background-image: linear-gradient(#5187c4, #1c2f45);
+            background-size: auto 200%;
+            background-position: 0 100%;
+            transition: background-position 0.5s;
+            font-size: 0.2rem;
+        }
+
+        button:hover {
+            background-position: 0 0;
         }
     </style>
 </head>
 
 <body>
 
-    <h1 class="verticalcenter">test</h1>
+    <h1>test</h1>
+
+    <button>test</button>
 
 
     <script>
