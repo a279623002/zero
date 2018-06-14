@@ -15,16 +15,6 @@
     <!-- 引入 jQuery Mobile 库 -->
     <script src="./dist/jquery.mobile-1.4.5.min.js"></script>
     <style>
-        h1 {
-            background: greenyellow;
-            color: skyblue;
-            width: 100%;
-            font-size: 0.5rem;
-            padding: 0;
-            margin: 0.1rem;
-            text-align: center;
-        }
-
         button {
             background-image: linear-gradient(rgb(89, 201, 253), rgb(230, 255, 86));
             background-size: auto 200%;
@@ -47,8 +37,28 @@
         </div>
 
         <div data-role="content">
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-btn-b">test1</button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-btn-b">test2</button>
+                </div>
+                <div class="ui-block-c">
+                    <button class="ui-btn ui-btn-b">test3</button>
+                </div>
+                <div class="ui-block-a">
+                    <button class="ui-btn ui-btn-b">test1</button>
+                </div>
+                <div class="ui-block-b">
+                    <button class="ui-btn ui-btn-b">test2</button>
+                </div>
+                <div class="ui-block-c">
+                    <button class="ui-btn ui-btn-b">test3</button>
+                </div>
+            </div>
             <img style="width:100%;" src="./images/top_img.jpg" alt="">
-            <main class="ui-grid-b">
+            <div class="ui-grid-b">
                 <div class="ui-block-a">
                     <button class="ui-btn ui-btn-b">test1</button>
                 </div>
@@ -67,16 +77,14 @@
                 <div class="ui-block-c">
                     <button class="ui-btn ui-btn-b">test3</button>
                 </div>
-            </main>
+            </div>
 
         </div>
 
         <div data-role="footer" data-position="fixed" data-theme="b">
-            <div data-role="controlgroup">
-                <a href="#" data-role="button" data-icon="plus">Add Me On Facebook</a>
-                <a href="#" data-role="button" data-icon="plus">Add Me On Twitter</a>
-                <a href="#" data-role="button" data-icon="plus">Add Me On Instagram</a>
-            </div>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Facebook上关注我</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Twitter上关注我</a>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-plus ui-btn-icon-left">在Instagram上关注我</a>
         </div>
     </div>
 
