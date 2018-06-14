@@ -108,6 +108,12 @@
                         }
                         $('#return_name').html(data['name']);
                         $('#return_code').html(data['code']);
+                    },
+                    error: function (data){
+                        sleep(5);
+                        hideLoader();
+                        $('#pagetwo h3').html('意外事故坠机');
+                        $('#back').removeClass("ui-hidden-accessible");
                     }
                 })
             })
