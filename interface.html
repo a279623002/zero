@@ -96,7 +96,6 @@
                     data: param,
                     dataType: 'json',
                     success: function (data) {
-                        sleep(5);
                         hideLoader();
                         $('#login').click();
                         if (data['status'] == 1) {
@@ -109,10 +108,10 @@
                         $('#return_name').html(data['name']);
                         $('#return_code').html(data['code']);
                     },
-                    error: function (data){
-                        sleep(5);
+                    error: function (e){
                         hideLoader();
                         $('#pagetwo h3').html('意外事故坠机');
+                        alert(e);
                         $('#back').removeClass("ui-hidden-accessible");
                     }
                 })
