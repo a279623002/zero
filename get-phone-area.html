@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="./dist/jquery.mobile-1.4.5.min.css">
+
+    <!-- 引入 jQuery 库 -->
+    <script src="./dist/jquery.min.js"></script>
+
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="./dist/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        #pageone {
+            background: url(./images/1.jpg) no-repeat center center;
+            background-size: cover;
+        }
+
+        #pagetwo {
+            background: url(./images/2.jpg) no-repeat 30% center;
+            background-size: cover;
+        }
+
+        .center:first-child {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1% 2% 2% 2%;
+            width: 50%;
+            margin: 15% auto;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div data-role="page" id="pageone">
+        <div class="center">
+            <form id="userform">
+                <label for="tel">tel:</label>
+                <input type="text" name="tel" id="tel" placeholder="tel" data-clear-btn="true">
+                <a href="#" id="submit" data-rel="popup" data-position-to="window" data-role="button">起飞</a>
+
+            </form>
+            <a id="login" class="ui-hidden-accessible" href="#pagetwo" data-transition="slide">切换</a>
+        </div>
+
+    </div>
+    <div data-role="page" id="pagetwo">
+        <div class="center">
+            <h3></h3>
+            <button id="return_province"></button>
+            <button id="return_carrier"></button>
+            <button id="return_catName"></button>
+            <a id="back" href="#pageone" data-transition="slide" data-direction="reverse">返回起点</a>
+        </div>
+
+    </div>
+
+
+    <script src="./dist/jquery.validate.min.js"></script>
+    <script src="./dist/autofont.js"></script>
+    <script>
+        //显示加载器
+        function showLoader() {
+            //显示加载器.for jQuery Mobile 1.2.0
+            $.mobile.loading('show', {
+                text: '加载中...', //加载器中显示的文字
+                textVisible: true, //是否显示文字
+                theme: 'a', //加载器主题样式a-e
+                textonly: false, //是否只显示文字
+                html: "" //要显示的html内容，如图片等
+            });
+        }
+        //隐藏加载器.for jQuery Mobile 1.2.0
+        function hideLoader() {
+            //隐藏加载器
+            $.mobile.loading('hide');
+        }
+
+        $(function () {
+            function valTel() {
+                return $('#userform').validate({
+                    rules: {
+                        tel: {
+                            required: true,
+                            minlength: 11,
+                            maxlength: 11
+                        },
+
+                    },
+                    messages: {
+                        tel: {
+                            required: '电话不得为空',
+                            minlength: '电话至少11个字符',
+                            maxlength: '电话最多11个字符'
+                        }
+                    }
+                }).form();
+            }
+
+            $('#submit').click(function () {
+                var param = $("#userform").serialize();
+                if (valTel()) {
+                    $.ajax({
+                        type: 'get',
+                        url: 'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm',
+                        data: param,
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            $('#login').click();
+                            $('#return_province').html(data['province']);
+                            $('#return_carrier').html(data['carrier']);
+                            $('#return_catName').html(data['catName']);
+                        },
+                        error: function (e) {
+                            hideLoader();
+                            $('#back').removeClass("ui-hidden-accessible");
+                        }
+                    })
+                }
+
+            })
+        })
+
+
+
+        window.onload = function () {
+
+            autosize();
+        }
+
+
+    </script>
+</body>
+
+</html>
