@@ -19,12 +19,12 @@
     <script src="./dist/jquery.mobile-1.4.5.min.js"></script>
     <style>
         #pageone {
-            background: url(./images/1.jpg) no-repeat center center;
+            background: url(./images/1.jpg) center center;
             background-size: cover;
         }
 
         #pagetwo {
-            background: url(./images/2.jpg) no-repeat 30% center;
+            background: url(./images/2.jpg) 30% center;
             background-size: cover;
         }
 
@@ -42,7 +42,7 @@
 
     <div data-role="page" id="pageone">
         <div class="center">
-            <form id="userform">
+            <form id="userform" onsubmit="return false;">
                 <label for="tel">tel:</label>
                 <input type="text" name="tel" id="tel" placeholder="tel" data-clear-btn="true">
                 <a href="#" id="submit" data-rel="popup" data-position-to="window" data-role="button">起飞</a>
@@ -124,11 +124,12 @@
                             $('#back').removeClass("ui-hidden-accessible");
                         }
                     })
-                }
-
+                };
             })
-        })
-
+            $('#tel').keydown(function(e){
+                e.keyCode == 13 && $('#submit').click();
+            })
+        });
 
 
         window.onload = function () {
