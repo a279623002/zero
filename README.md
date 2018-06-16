@@ -108,6 +108,6 @@
 
 * 调用response.class.php进行测试
 
-11 No ending...s
+11 No ending...
 
 

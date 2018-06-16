@@ -71,7 +71,7 @@
         $(function () {
 
             function valFly() {
-                $('#userform').validate({
+               return $('#userform').validate({
                     rules: {
                         name: {
                             required: true,
@@ -91,7 +91,6 @@
             }
 
             $('#submit').click(function () {
-                showLoader();
 
                 var param = $("#userform").serialize();
                 if (valFly()) {
@@ -101,7 +100,6 @@
                         data: param,
                         dataType: 'json',
                         success: function (data) {
-                            hideLoader();
                             $('#login').click();
                             if (data['status'] == 1) {
                                 $('#pagetwo h3').html('起飞');
