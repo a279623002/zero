@@ -54,10 +54,6 @@
     </div>
     <div data-role="page" id="pagetwo">
         <div class="center">
-            <h3></h3>
-            <button id="return_province"></button>
-            <button id="return_carrier"></button>
-            <button id="return_catName"></button>
             <a id="back" href="#pageone" data-transition="slide" data-direction="reverse">返回起点</a>
         </div>
 
@@ -115,9 +111,18 @@
                         dataType: 'jsonp',
                         success: function (data) {
                             $('#login').click();
-                            $('#return_province').html(data['province']);
-                            $('#return_carrier').html(data['carrier']);
-                            $('#return_catName').html(data['catName']);
+                            if (!!data['province'] && !!data['carrier'] && !!data['catName']) {
+                                var btn1 = "<botton id='1' class='ui-btn ui-shadow ui-corner-all'>"+data['province']+"</button>";
+                                var btn2 = "<botton id='2' class='ui-btn ui-shadow ui-corner-all'>"+data['carrier']+"</button>";
+                                var btn3 = "<botton id='3' class='ui-btn ui-shadow ui-corner-all'>"+data['catName']+"</button>";
+                                $('#back').before(btn1,btn2,btn3);
+
+
+                            }else {
+                                var err = "<botton id='4' class='ui-btn ui-shadow ui-corner-all'>"+'查询错误，请重试！'+"</button>"
+                                    $('#back').before(err);
+                            }
+
                         },
                         error: function (e) {
                             hideLoader();
@@ -126,8 +131,11 @@
                     })
                 };
             })
-            $('#tel').keydown(function(e){
+            $('#tel').keydown(function (e) {
                 e.keyCode == 13 && $('#submit').click();
+            })
+            $('#back').click(function(){
+                $('#pagetwo .center botton').remove();
             })
         });
 
