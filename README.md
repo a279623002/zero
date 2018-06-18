@@ -108,6 +108,12 @@
 
 * 调用response.class.php进行测试
 
+12 get-weather.html
+
+* 调用数据全面的天气预报接口
+
+
+
 11 No ending...
 
 
