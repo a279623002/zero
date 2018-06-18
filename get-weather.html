@@ -35,6 +35,8 @@
             background-size: cover;
             height: 100%;
             width: 100%;
+            padding: 0;
+            margin: 0;
         }
 
         #pageone .center {
@@ -140,8 +142,8 @@
                             yesterday += "<li>" + data['data']['yesterday']['type'] + "</li>";
                             yesterday += "</ul>";
                             yesterday += "</div>";
-                            $('.center').append(ganmao).trigger('create');
-                            $('.center').append(yesterday).trigger('create');
+                            $('#pagetwo .center').append(ganmao).trigger('create');
+                            $('#pagetwo .center').append(yesterday).trigger('create');
                             if (data['status'] == 1000) {
                                 for (var i in data['data']['forecast']) {
                                     var str = "<div data-role='collapsible' class='weather'>";
@@ -153,11 +155,11 @@
                                     str += "<li>" + data['data']['forecast'][i]['type'] + "</li>";
                                     str += "</ul>";
                                     str += "</div>";
-                                    $('.center').append(str).trigger('create');
+                                    $('#pagetwo .center').append(str).trigger('create');
                                 }
                             } else {
                                 var err = "<botton id='4' class='ui-btn ui-shadow ui-corner-all weather'>" + '查询错误，请重试！' + "</button>";
-                                $('.center').append(err).trigger('create');
+                                $('#pagetwo .center').append(err).trigger('create');
                             }
                             $('#pagetwo li').click(function(){
                                 return false;
