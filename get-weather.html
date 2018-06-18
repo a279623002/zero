@@ -23,7 +23,8 @@
             margin: 0;
         }
 
-        #pageone,#pagetwo {
+        #pageone,
+        #pagetwo {
             background: url(./images/1.jpg) no-repeat center 0px;
             background-size: cover;
             height: 100%;
@@ -47,6 +48,24 @@
         }
 
 
+        /* 滚动效果 */
+
+        .marquee {
+            white-space: nowrap;
+            /* 文字不折行 */
+            overflow: -webkit-marquee;
+            /* 只有设置为marquee才有滚动效果 */
+            width: 100%;
+            /* 不是必须的 */
+            -webkit-marquee-direction: left;
+            /* 文字滚动方向 可选值为left | right | up | down */
+            -webkit-marquee-speed: normal;
+            /* 文字滚动速度 可选值为slow | normal | fast */
+            -webkit-marquee-style: scroll;
+            /* 文字滚动方式 可选值为scroll | slide | alternate */
+            -webkit-marquee-repetition: 1;
+            /* 文字滚动次数 number | infinite ， infinite即无限次循环滚动 */
+        }
     </style>
 </head>
 
@@ -125,7 +144,7 @@
                         dataType: 'jsonp',
                         success: function (data) {
                             $('#login').click();
-                            var ganmao = "<p>" + data['data']['ganmao'] + "</p>";
+                            var ganmao = "<marquee class='ui-corner-all' direction=up behavior=scroll scrollamount=1 align=top bgcolor=#ffffff height=50 width=100% hspace=20 vspace=10 onmouseover=this.stop() onmouseout=this.start()>" + data['data']['ganmao'] + "</marquee>";
                             var yesterday = "<div data-role='collapsible' class='weather'>";
                             yesterday += "<h4>" + data['data']['yesterday']['date'] + "</h4>";
                             yesterday += "<ul data-role='listview'>";
@@ -154,7 +173,7 @@
                                 var err = "<botton id='4' class='ui-btn ui-shadow ui-corner-all weather'>" + '查询错误，请重试！' + "</button>";
                                 $('#pagetwo .center').append(err).trigger('create');
                             }
-                            $('#pagetwo li').click(function(){
+                            $('#pagetwo li').click(function () {
                                 return false;
                             })
 
