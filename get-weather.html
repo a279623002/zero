@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Weather</title>
+
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="./dist/jquery.mobile-1.4.5.min.css">
+
+    <!-- 引入 jQuery 库 -->
+    <script src="./dist/jquery.min.js"></script>
+
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="./dist/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #pageone {
+            background: url(./images/1.jpg) no-repeat center 0px;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        #pagetwo {
+            background: url(./images/2.jpg) no-repeat center 0px;
+            ;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+        #pageone .center {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1% 2% 2% 2%;
+            width: 50%;
+            margin: 15% auto;
+        }
+
+        #pagetwo .center {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1% 2% 2% 2%;
+            width: 70%;
+            margin: 15% auto;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+
+    <div data-role="page" id="pageone">
+        <div class="center">
+            <form id="userform" onsubmit="return false;">
+                <label for="city">city:</label>
+                <input type="text" name="city" id="city" placeholder="city" data-clear-btn="true">
+                <a href="#" id="submit" data-rel="popup" data-position-to="window" data-role="button">起飞</a>
+
+            </form>
+            <a id="login" class="ui-hidden-accessible" href="#pagetwo" data-transition="slide">切换</a>
+        </div>
+
+    </div>
+    <div data-role="page" id="pagetwo">
+        <div class="center">
+
+            <a id="back" href="#pageone" data-role="button" data-transition="slide" data-direction="reverse">返回起点</a>
+        </div>
+
+    </div>
+
+
+    <script src="./dist/jquery.validate.min.js"></script>
+    <script src="./dist/autofont.js"></script>
+    <script>
+        //显示加载器
+        function showLoader() {
+            //显示加载器.for jQuery Mobile 1.2.0
+            $.mobile.loading('show', {
+                text: '加载中...', //加载器中显示的文字
+                textVisible: true, //是否显示文字
+                theme: 'a', //加载器主题样式a-e
+                textonly: false, //是否只显示文字
+                html: "" //要显示的html内容，如图片等
+            });
+        }
+        //隐藏加载器.for jQuery Mobile 1.2.0
+        function hideLoader() {
+            //隐藏加载器
+            $.mobile.loading('hide');
+        }
+
+        $(function () {
+            function valTel() {
+                return $('#userform').validate({
+                    rules: {
+                        city: {
+                            required: true,
+                            minlength: 1,
+                            maxlength: 4
+                        },
+
+                    },
+                    messages: {
+                        city: {
+                            required: '城市不得为空',
+                            minlength: '城市至少1个字符',
+                            maxlength: '城市最多4个字符'
+                        }
+                    }
+                }).form();
+            }
+
+            $('#submit').click(function () {
+                var param = $("#userform").serialize();
+                if (valTel()) {
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://wthrcdn.etouch.cn/weather_mini',
+                        data: param,
+                        dataType: 'jsonp',
+                        success: function (data) {
+                            $('#login').click();
+                            var ganmao = "<p>" + data['data']['ganmao'] + "</p>";
+                            var yesterday = "<div data-role='collapsible' class='weather'>";
+                            yesterday += "<h4>" + data['data']['yesterday']['date'] + "</h4>";
+                            yesterday += "<ul data-role='listview'>";
+                            yesterday += "<li>" + data['data']['yesterday']['high'] + "</li>";
+                            yesterday += "<li>" + data['data']['yesterday']['low'] + "</li>";
+                            yesterday += "<li>" + data['data']['yesterday']['fx'] + "</li>";
+                            yesterday += "<li>" + data['data']['yesterday']['type'] + "</li>";
+                            yesterday += "</ul>";
+                            yesterday += "</div>";
+                            $('.center').append(ganmao).trigger('create');
+                            $('.center').append(yesterday).trigger('create');
+                            if (data['status'] == 1000) {
+                                for (var i in data['data']['forecast']) {
+                                    var str = "<div data-role='collapsible' class='weather'>";
+                                    str += "<h4>" + data['data']['forecast'][i]['date'] + "</h4>";
+                                    str += "<ul data-role='listview'>";
+                                    str += "<li>" + data['data']['forecast'][i]['high'] + "</li>";
+                                    str += "<li>" + data['data']['forecast'][i]['low'] + "</li>";
+                                    str += "<li>" + data['data']['forecast'][i]['fengxiang'] + "</li>";
+                                    str += "<li>" + data['data']['forecast'][i]['type'] + "</li>";
+                                    str += "</ul>";
+                                    str += "</div>";
+                                    $('.center').append(str).trigger('create');
+                                }
+                            } else {
+                                var err = "<botton id='4' class='ui-btn ui-shadow ui-corner-all weather'>" + '查询错误，请重试！' + "</button>";
+                                $('.center').append(err).trigger('create');
+                            }
+                            $('#pagetwo li').click(function(){
+                                return false;
+                            })
+
+                        },
+                        error: function (e) {
+                            $('#back').removeClass("ui-hidden-accessible");
+                        }
+                    })
+                };
+            })
+            $('#city').keydown(function (e) {
+                e.keyCode == 13 && $('#submit').click();
+            })
+            $('#back').click(function () {
+                $('#pagetwo .center .weather').remove();
+            })
+        });
+
+
+        window.onload = function () {
+
+            autosize();
+        }
+
+
+    </script>
+</body>
+
+</html>
