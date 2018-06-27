@@ -32,3 +32,8 @@
 		git push -u origin master
 	
 	
+4-->本地和远程的文件合并后上传
+	(1)-->先拉下来自动合并
+		git pull origin master
+	(2)-->上传
+		git push -u origin master

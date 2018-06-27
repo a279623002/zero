@@ -8,28 +8,59 @@ linux防火墙
 查看端口
 netstat -ntl
 
+在centos7安装php环境
 
-添加用户
-useradd ftpadmin -s /sbin/nologin –d /www(其他目录)
+1. 安装apache
 
-find / -name '*vsftpd*'
+yum install httpd httpd-devel
+service httpd start　　　　启动
+service httpd stop　　　　停止
+service httpd restart　　　重启
+service httpd status　　　状态
 
-vsftp：
- 
-修改vsftpd.conf配置文件让它支持Passive（被动）模式
- 
-#vim /etc/vsftpd/vsftpd.conf
- 
-在最后一行添加如下内容：
- 
-pasv_min_port=10050 （设置被动模式的端口范围）
- 
-pasv_max_port=10060（设置被动模式的端口范围）
-在防火墙配置文件iptables中添加端口
- 
-#vim /etc/sysconfig/iptables
- 
--A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 10050:100060 -j ACCEPT
+chkconfig httpd on 　　　将apache 设置为开机启动项
+2.卸载apache
 
-使用 zip 打包文件夹：zip -r -q -o pack.zip mark/
+service httpd stop　　　　停止
+
+rpm -qa|grep httpd　　　  列出相关程序包
+
+rpm -e 程序包名　　　　　卸载相关程序包
+
  
+
+3. 安装php
+
+yum install php php-devel
+
+service httpd restart　　　重启后生效
+
+4. 安装mysql
+
+wget http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+
+rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+yum install mysql-community-server
+
+安装成功后启动服务
+
+service mysqld start　　　　启动
+service mysqld stop　　　　停止
+service mysqld restart　　　重启
+service mysqld status　　　状态
+
+安装成功后mysql没有密码
+
+可通过
+
+mysql -uroot
+
+进入mysql进行修改密码
+
+ 
+
+5.安装php扩展
+
+yum install php-mysql php-gd php-imap php-ldap php-odbc php-pear php-xml php-xmlrpc
+安装完成后重启apache
