@@ -92,7 +92,7 @@
 * 同时利用Jquery Mobile框架测试
 * 使用Jquery插件validate做验证功能
 
-7 linux.text
+7 linux.txt
 
 * 基础的linux指令
 
