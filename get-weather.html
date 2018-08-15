@@ -139,11 +139,10 @@
                 if (valTel()) {
                     $.ajax({
                         type: 'get',
-                        url: 'https://www.sojson.com/open/api/weather/json.shtml',
+                        url: 'https://wthrcdn.etouch.cn/weather_mini',
                         data: param,
                         dataType: 'jsonp',
                         success: function (data) {
-                            console.log(data);
                             $('#login').click();
                             var ganmao = "<marquee class='ui-corner-all' direction=up behavior=scroll scrollamount=1 align=top bgcolor=#ffffff height=50 width=100% hspace=20 vspace=10 onmouseover=this.stop() onmouseout=this.start()>" + data['data']['ganmao'] + "</marquee>";
                             var yesterday = "<div data-role='collapsible' class='weather'>";
