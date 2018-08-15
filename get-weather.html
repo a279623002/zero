@@ -139,8 +139,8 @@
                     $.ajax({
                         type: 'get',
                         url: 'https://www.sojson.com/open/api/weather/json.shtml',
-                        data: param,
-                        dataType: $('#city').val(),
+                        data: { 'city': $('#city').val() },
+                        dataType: 'jsonp',
                         success: function (data) {
                             console.log(data);
                             $('#login').click();
