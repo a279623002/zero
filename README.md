@@ -132,7 +132,18 @@
     -->
 ```
 
+13 回车提交
 
+```
+<script>
+    $('#loginbox').keydown(function (e) {
+        if (e.keyCode == 13) {
+            //模拟点击登陆按钮，触发上面的 Click 事件
+            $("#loginbox input[type='button']").click();
+        }
+    });
+</script>
+```
 
 ## No ending...
 
