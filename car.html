@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>广东车牌1.0</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
+    <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
@@ -16,32 +17,235 @@
 
 <body>
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <div class="col-xs-1"></div>
+        <div class="col-xs-10">
+            <h1>广东车牌</h1>
             <form>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                    <label for="gz">广州市</label>
+                    <select class="form-control" id="gz">
+                        <option>粤A</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                    <!-- <span style="color:red;">red</span> -->
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <label for="sz">深圳市</label>
+                    <select class="form-control" id="sz">
+                        <option>粤A</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <input type="file" id="exampleInputFile">
-                    <p class="help-block">Example block-level help text here.</p>
+                    <label for="zh">珠海市</label>
+                    <select class="form-control" id="zh">
+                        <option>粤A</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
                 </div>
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox"> Check me out
-                    </label>
+                <div class="form-group">
+                    <label for="st">汕头市</label>
+                    <select class="form-control" id="st">
+                        <option>粤A</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fs">佛山市(除顺德、南海区)</label>
+                    <select class="form-control" id="fs">
+                        <option>粤E</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sg">韶关市</label>
+                    <select class="form-control" id="sg">
+                        <option>粤F</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zj">湛江市</label>
+                    <select class="form-control" id="gz">
+                        <option>粤G</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zq">肇庆市</label>
+                    <select class="form-control" id="zq">
+                        <option>粤H</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jm">江门市</label>
+                    <select class="form-control" id="jm">
+                        <option>粤J</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mm">茂名市</label>
+                    <select class="form-control" id="mm">
+                        <option>粤K</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hz">惠州市</label>
+                    <select class="form-control" id="hz">
+                        <option>粤L</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mz">梅州市</label>
+                    <select class="form-control" id="mz">
+                        <option>粤M</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sw">汕尾市</label>
+                    <select class="form-control" id="sw">
+                        <option>粤N</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="hy">河源市</label>
+                    <select class="form-control" id="hy">
+                        <option>粤P</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="yj">阳江市</label>
+                    <select class="form-control" id="yj">
+                        <option>粤Q</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="qy">清远市</label>
+                    <select class="form-control" id="qy">
+                        <option>粤R</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dg">东莞市</label>
+                    <select class="form-control" id="dg">
+                        <option>粤S</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="zs">中山市</label>
+                    <select class="form-control" id="zs">
+                        <option>粤T</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cz">潮州市</label>
+                    <select class="form-control" id="cz">
+                        <option>粤U</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="jy">揭阳市</label>
+                    <select class="form-control" id="jy">
+                        <option>粤V</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="yf">云浮市</label>
+                    <select class="form-control" id="yf">
+                        <option>粤W</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fssd">佛山市顺德区</label>
+                    <select class="form-control" id="fssd">
+                        <option>粤X</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fsnh">佛山市南海区</label>
+                    <select class="form-control" id="fsnh">
+                        <option>粤Y</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ga">港澳进入内地车辆</label>
+                    <select class="form-control" id="ga">
+                        <option>粤Z</option>
+                        <option>粤B</option>
+                        <option>粤C</option>
+                        <option>粤D</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col-xs-1"></div>
     </div>
+    <script>
+       
+    </script>
 </body>
 
 </html>
