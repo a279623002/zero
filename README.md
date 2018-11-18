@@ -145,6 +145,12 @@
 </script>
 ```
 
+14 car.html
+
+* 广东车牌1.0
+* 使用bootstrap表单jq验证
+* 题目答案顺序固定
+
 ## No ending...
 
 

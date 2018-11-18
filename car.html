@@ -13,234 +13,245 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: url('./images/4.gif');
+            background-size:contain;
+        }
+        h1,label,button {
+            color: yellowgreen !important;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-10">
-            <h1>广东车牌</h1>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="zj">湛江市</label>
-                    <select class="form-control" id="zj">
-                        <option value="4">粤P</option>
-                        <option value="1">粤G</option>
-                        <option value="5">粤U</option>
-                        <option value="2">粤D</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="sz">深圳市</label>
-                    <select class="form-control" id="sz">
-                        <option value="12">粤R</option>
-                        <option value="13">粤W</option>
-                        <option value="13">粤V</option>
-                        <option value="1">粤B</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="st">汕头市</label>
-                    <select class="form-control" id="st">
-                        <option value="12">粤Y</option>
-                        <option value="4">粤E</option>
-                        <option value="1">粤D</option>
-                        <option value="3">粤P</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="fs">佛山市(除顺德、南海区)</label>
-                    <select class="form-control" id="fs">
-                        <option value="4">粤T</option>
-                        <option value="3">粤G</option>
-                        <option value="2">粤K</option>
-                        <option value="1">粤E</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="gz">广州市</label>
-                    <select class="form-control" id="gz">
-                        <option value="2">粤R</option>
-                        <option value="3">粤X</option>
-                        <option value="1">粤A</option>
-                        <option value="4">粤W</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="sg">韶关市</label>
-                    <select class="form-control" id="sg">
-                        <option value="1">粤F</option>
-                        <option value="5">粤B</option>
-                        <option value="33">粤H</option>
-                        <option value="2">粤D</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="zq">肇庆市</label>
-                    <select class="form-control" id="zq">
-                        <option value="5">粤F</option>
-                        <option value="1">粤H</option>
-                        <option value="3">粤Y</option>
-                        <option value="6">粤Q</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="sw">汕尾市</label>
-                    <select class="form-control" id="sw">
-                        <option value="1">粤N</option>
-                        <option value="2">粤F</option>
-                        <option value="7">粤J</option>
-                        <option value="9">粤L</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="jm">江门市</label>
-                    <select class="form-control" id="jm">
-                        <option value="3">粤D</option>
-                        <option value="4">粤T</option>
-                        <option value="1">粤J</option>
-                        <option value="7">粤A</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="zh">珠海市</label>
-                    <select class="form-control" id="zh">
-                        <option value="12">粤N</option>
-                        <option value="1">粤C</option>
-                        <option value="13">粤J</option>
-                        <option value="13">粤L</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mm">茂名市</label>
-                    <select class="form-control" id="mm">
-                        <option value="6">粤J</option>
-                        <option value="7">粤O</option>
-                        <option value="9">粤A</option>
-                        <option value="1">粤K</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="hz">惠州市</label>
-                    <select class="form-control" id="hz">
-                        <option value="1">粤L</option>
-                        <option value="3">粤I</option>
-                        <option value="4">粤O</option>
-                        <option value="5">粤R</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mz">梅州市</label>
-                    <select class="form-control" id="mz">
-                        <option value="3">粤N</option>
-                        <option value="5">粤G</option>
-                        <option value="1">粤M</option>
-                        <option value="6">粤L</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="hy">河源市</label>
-                    <select class="form-control" id="hy">
-                        <option value="1">粤P</option>
-                        <option value="8">粤L</option>
-                        <option value="7">粤D</option>
-                        <option value="6">粤O</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="yj">阳江市</label>
-                    <select class="form-control" id="yj">
-                        <option value="5">粤O</option>
-                        <option value="1">粤Q</option>
-                        <option value="3">粤R</option>
-                        <option value="2">粤S</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="qy">清远市</label>
-                    <select class="form-control" id="qy">
-                        <option value="6">粤F</option>
-                        <option value="3">粤S</option>
-                        <option value="1">粤R</option>
-                        <option value="2">粤E</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="dg">东莞市</label>
-                    <select class="form-control" id="dg">
-                        <option value="9">粤B</option>
-                        <option value="1">粤S</option>
-                        <option value="3">粤D</option>
-                        <option value="2">粤U</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="fssd">佛山市顺德区</label>
-                    <select class="form-control" id="fssd">
-                        <option value="9">粤B</option>
-                        <option value="7">粤V</option>
-                        <option value="3">粤Z</option>
-                        <option value="1">粤X</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="zs">中山市</label>
-                    <select class="form-control" id="zs">
-                        <option value="4">粤P</option>
-                        <option value="6">粤E</option>
-                        <option value="1">粤T</option>
-                        <option value="2">粤I</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="cz">潮州市</label>
-                    <select class="form-control" id="cz">
-                        <option value="3">粤R</option>
-                        <option value="2">粤C</option>
-                        <option value="6">粤I</option>
-                        <option value="1">粤U</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="jy">揭阳市</label>
-                    <select class="form-control" id="jy">
-                        <option value="1">粤V</option>
-                        <option value="5">粤O</option>
-                        <option value="3">粤R</option>
-                        <option value="2">粤D</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="yf">云浮市</label>
-                    <select class="form-control" id="yf">
-                        <option value="5">粤P</option>
-                        <option value="3">粤M</option>
-                        <option value="1">粤W</option>
-                        <option value="7">粤N</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="fsnh">佛山市南海区</label>
-                    <select class="form-control" id="fsnh">
-                        <option value="3">粤J</option>
-                        <option value="2">粤O</option>
-                        <option value="1">粤Y</option>
-                        <option value="7">粤K</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="ga">港澳进入内地车辆</label>
-                    <select class="form-control" id="ga">
-                        <option value="1">粤Z</option>
-                        <option value="2">粤B</option>
-                        <option value="3">粤V</option>
-                        <option value="4">粤D</option>
-                    </select>
-                </div>
-                <button type="button" onclick="check()" class="btn btn-default">Check</button>
-            </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <h1>广东车牌</h1>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="zj">湛江市</label>
+                        <select class="form-control" id="zj">
+                            <option value="4">粤P</option>
+                            <option value="1">粤G</option>
+                            <option value="5">粤U</option>
+                            <option value="2">粤D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sz">深圳市</label>
+                        <select class="form-control" id="sz">
+                            <option value="12">粤R</option>
+                            <option value="13">粤W</option>
+                            <option value="13">粤V</option>
+                            <option value="1">粤B</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="st">汕头市</label>
+                        <select class="form-control" id="st">
+                            <option value="12">粤Y</option>
+                            <option value="4">粤E</option>
+                            <option value="1">粤D</option>
+                            <option value="3">粤P</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fs">佛山市(除顺德、南海区)</label>
+                        <select class="form-control" id="fs">
+                            <option value="4">粤T</option>
+                            <option value="3">粤G</option>
+                            <option value="2">粤K</option>
+                            <option value="1">粤E</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gz">广州市</label>
+                        <select class="form-control" id="gz">
+                            <option value="2">粤R</option>
+                            <option value="3">粤X</option>
+                            <option value="1">粤A</option>
+                            <option value="4">粤W</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sg">韶关市</label>
+                        <select class="form-control" id="sg">
+                            <option value="1">粤F</option>
+                            <option value="5">粤B</option>
+                            <option value="33">粤H</option>
+                            <option value="2">粤D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zq">肇庆市</label>
+                        <select class="form-control" id="zq">
+                            <option value="5">粤F</option>
+                            <option value="1">粤H</option>
+                            <option value="3">粤Y</option>
+                            <option value="6">粤Q</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sw">汕尾市</label>
+                        <select class="form-control" id="sw">
+                            <option value="1">粤N</option>
+                            <option value="2">粤F</option>
+                            <option value="7">粤J</option>
+                            <option value="9">粤L</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jm">江门市</label>
+                        <select class="form-control" id="jm">
+                            <option value="3">粤D</option>
+                            <option value="4">粤T</option>
+                            <option value="1">粤J</option>
+                            <option value="7">粤A</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zh">珠海市</label>
+                        <select class="form-control" id="zh">
+                            <option value="12">粤N</option>
+                            <option value="1">粤C</option>
+                            <option value="13">粤J</option>
+                            <option value="13">粤L</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mm">茂名市</label>
+                        <select class="form-control" id="mm">
+                            <option value="6">粤J</option>
+                            <option value="7">粤O</option>
+                            <option value="9">粤A</option>
+                            <option value="1">粤K</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hz">惠州市</label>
+                        <select class="form-control" id="hz">
+                            <option value="1">粤L</option>
+                            <option value="3">粤I</option>
+                            <option value="4">粤O</option>
+                            <option value="5">粤R</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mz">梅州市</label>
+                        <select class="form-control" id="mz">
+                            <option value="3">粤N</option>
+                            <option value="5">粤G</option>
+                            <option value="1">粤M</option>
+                            <option value="6">粤L</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hy">河源市</label>
+                        <select class="form-control" id="hy">
+                            <option value="1">粤P</option>
+                            <option value="8">粤L</option>
+                            <option value="7">粤D</option>
+                            <option value="6">粤O</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="yj">阳江市</label>
+                        <select class="form-control" id="yj">
+                            <option value="5">粤O</option>
+                            <option value="1">粤Q</option>
+                            <option value="3">粤R</option>
+                            <option value="2">粤S</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="qy">清远市</label>
+                        <select class="form-control" id="qy">
+                            <option value="6">粤F</option>
+                            <option value="3">粤S</option>
+                            <option value="1">粤R</option>
+                            <option value="2">粤E</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dg">东莞市</label>
+                        <select class="form-control" id="dg">
+                            <option value="9">粤B</option>
+                            <option value="1">粤S</option>
+                            <option value="3">粤D</option>
+                            <option value="2">粤U</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fssd">佛山市顺德区</label>
+                        <select class="form-control" id="fssd">
+                            <option value="9">粤B</option>
+                            <option value="7">粤V</option>
+                            <option value="3">粤Z</option>
+                            <option value="1">粤X</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zs">中山市</label>
+                        <select class="form-control" id="zs">
+                            <option value="4">粤P</option>
+                            <option value="6">粤E</option>
+                            <option value="1">粤T</option>
+                            <option value="2">粤I</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="cz">潮州市</label>
+                        <select class="form-control" id="cz">
+                            <option value="3">粤R</option>
+                            <option value="2">粤C</option>
+                            <option value="6">粤I</option>
+                            <option value="1">粤U</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jy">揭阳市</label>
+                        <select class="form-control" id="jy">
+                            <option value="1">粤V</option>
+                            <option value="5">粤O</option>
+                            <option value="3">粤R</option>
+                            <option value="2">粤D</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="yf">云浮市</label>
+                        <select class="form-control" id="yf">
+                            <option value="5">粤P</option>
+                            <option value="3">粤M</option>
+                            <option value="1">粤W</option>
+                            <option value="7">粤N</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="fsnh">佛山市南海区</label>
+                        <select class="form-control" id="fsnh">
+                            <option value="3">粤J</option>
+                            <option value="2">粤O</option>
+                            <option value="1">粤Y</option>
+                            <option value="7">粤K</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ga">港澳进入内地车辆</label>
+                        <select class="form-control" id="ga">
+                            <option value="1">粤Z</option>
+                            <option value="2">粤B</option>
+                            <option value="3">粤V</option>
+                            <option value="4">粤D</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="check()" class="btn btn-default">Check</button>
+                </form>
+            </div>
+            <div class="col-xs-1"></div>
         </div>
-        <div class="col-xs-1"></div>
     </div>
     <script>
         function check() {
